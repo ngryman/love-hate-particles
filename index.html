@@ -1,34 +1,45 @@
 <!DOCTYPE html>
 <html>
-
 <head>
+
     <meta charset="utf-8">
     <title>Canvas</title>
     <link rel="stylesheet" href="style.css">
+
 </head>
-
 <body>
+
+<fieldset class="man">
+    <p class="love">
+        <input id="love" type="number" value="50">
+    </p>
+    <p class="hate">
+        <input id="hate" type="number" value="25">
+    </p>
+    <p class="love-radius">
+        <input id="love-radius" type="number" value="400">
+    </p>
+    <p class="hate-radius">
+        <input id="hate-radius" type="number" value="50">
+    </p>
+</fieldset>
+
+<fieldset class="girl">
+    <p class="love">
+        <input id="love" type="number" value="50">
+    </p>
+    <p class="hate">
+        <input id="hate" type="number" value="25">
+    </p>
+    <p class="love-radius">
+        <input id="love-radius" type="number" value="400">
+    </p>
+    <p class="hate-radius">
+        <input id="hate-radius" type="number" value="50">
+    </p>
+</fieldset>
+
 <canvas id="scene" width="640" height="400"></canvas>
-
-<p>
-    <label for="love">Love</label>
-    <input id="love" type="number" value="50">
-</p>
-
-<p>
-    <label for="hate">Hate</label>
-    <input id="hate" type="number" value="25">
-</p>
-
-<p>
-    <label for="love-radius">Love Radius</label>
-    <input id="love-radius" type="number" value="400">
-</p>
-
-<p>
-    <label for="hate-radius">Hate Radius</label>
-    <input id="hate-radius" type="number" value="50">
-</p>
 
 <script src="love_hate.js"></script>
 <script>
@@ -49,6 +60,6 @@
         }, false);
     };
 </script>
-</body>
 
+</body>
 </html>

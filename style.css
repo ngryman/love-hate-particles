@@ -1,5 +1,12 @@
+* {
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
 body {
-    font-family: "Lucida Console", "Lucida Sans Typewriter", Monaco, "Bitstream Vera Sans Mono", monospace;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
     color: #fefefe;
     background-color: #222222;
     background-image: -moz-linear-gradient(transparent 50%, #1c1c1c 50%);
@@ -10,20 +17,114 @@ body {
     background-size: 50px 8px;
 }
 
+canvas,
+fieldset {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 640px;
+    border: 6px solid #333333;
+    box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.4);
+    border-radius: 4px;
+}
+
+canvas {
+    margin-top: -200px;
+    margin-left: -320px;
+    background: black;
+}
+
+fieldset {
+    margin-top: -120px;
+    border-width: 6px;
+    border-style: solid;
+    padding: 0 10px;
+    width: 140px;
+    z-index: -1;
+    -webkit-transition: all 300ms;
+}
+
+fieldset.man {
+    margin-left: -470px;
+    border-color: rgba(30, 144, 255, 0.1);;
+    background: rgba(30, 144, 255, 0.1);
+    -webkit-transform: translate3d(50px, 0, 0) scale(0.95);
+}
+
+fieldset.girl {
+    margin-left: 330px;
+    border-color: rgba(255, 20, 147, 0.1);;
+    background: rgba(255, 20, 147, 0.1);
+    -webkit-transform: translate3d(-50px, 0, 0) scale(0.95);
+}
+
+fieldset:hover {
+    -webkit-transform: translate3d(0, 0, 0);
+}
+
+fieldset.man:hover {
+    border-color: rgba(30, 144, 255, 0.6);
+    background: rgba(30, 144, 255, 0.6);
+    box-shadow: 0 0 40px 2px rgba(30, 144, 255, 0.6);
+}
+
+fieldset.girl:hover {
+    border-color: rgba(255, 20, 147, 0.6);
+    background: rgba(255, 20, 147, 0.6);
+    box-shadow: 0 0 40px 2px rgba(255, 20, 147, 0.6);
+}
+
+fieldset p {
+    position: relative;
+}
+
+.man p {
+    padding-left: 40px;
+}
+
+.girl p {
+    padding-right: 40px;
+}
+
+fieldset p::before {
+    content: '';
+    position: absolute;
+    width: 36px;
+    height: 36px;
+}
+
+.man p::before {
+    left: 0;
+}
+
+.girl p::before {
+    right: 0;
+}
+
+fieldset p.love::before {
+    background: url(love.png) no-repeat;
+}
+
+fieldset p.hate::before {
+    background: url(hate.png) no-repeat;
+}
+
+fieldset p.love-radius::before {
+    background: url(love-radius.png) no-repeat;
+}
+
+fieldset p.hate-radius::before {
+    background: url(hate-radius.png) no-repeat;
+}
+
 input[type=number] {
-    border: 5px solid #333333;
+    border: 4px solid rgba(50, 50, 50, 0.5);
+    padding: 4px;
+    width: 100%;
     color: #fefefe;
     background: #222222;
 }
 
-canvas {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    box-shadow: 0 0 4px 2px rgba(1, 1, 1, 0.4);
-}
-
-#scene {
-    margin-top: -200px;
-    margin-left: -320px;
+.girl input {
+    direction: rtl;
 }
