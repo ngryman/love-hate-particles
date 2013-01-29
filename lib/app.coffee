@@ -43,14 +43,14 @@ class App
       x: Math.random() * @canvas.width
       y: Math.random() * @canvas.height
       30, 144, 255, LOVE
-    @woman = new Particle
+    @girl = new Particle
       x: Math.random() * @canvas.width
       y: Math.random() * @canvas.height
       255, 20, 147, LOVE
 
     @particles = []
     @particles.push @man
-    @particles.push @woman
+    @particles.push @girl
 
     @iterations = 0
 

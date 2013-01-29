@@ -51,11 +51,19 @@ fieldset.man {
     -webkit-transform: translate3d(50px, 0, 0) scale(0.95);
 }
 
+fieldset.man:not(:hover) {
+    -webkit-animation: man-shake 5s 1s infinite alternate;
+}
+
 fieldset.girl {
     margin-left: 330px;
     border-color: rgba(255, 20, 147, 0.1);;
     background: rgba(255, 20, 147, 0.1);
     -webkit-transform: translate3d(-50px, 0, 0) scale(0.95);
+}
+
+fieldset.girl:not(:hover) {
+    -webkit-animation: girl-shake 5s 1s infinite alternate;
 }
 
 fieldset:hover {
@@ -102,19 +110,19 @@ fieldset p::before {
 }
 
 fieldset p.love::before {
-    background: url(love.png) no-repeat;
+    background: url(images/love.png) no-repeat;
 }
 
 fieldset p.hate::before {
-    background: url(hate.png) no-repeat;
+    background: url(images/hate.png) no-repeat;
 }
 
 fieldset p.love-radius::before {
-    background: url(love-radius.png) no-repeat;
+    background: url(images/love-radius.png) no-repeat;
 }
 
 fieldset p.hate-radius::before {
-    background: url(hate-radius.png) no-repeat;
+    background: url(images/hate-radius.png) no-repeat;
 }
 
 input[type=number] {
@@ -127,4 +135,32 @@ input[type=number] {
 
 .girl input {
     direction: rtl;
+}
+
+@-webkit-keyframes man-shake {
+    0% { -webkit-transform: translate3d(52px, 1px, 0) rotate(0deg) scale(0.95); }
+    10% { -webkit-transform: translate3d(49px, -2px, 0) rotate(-1deg) scale(0.95); }
+    20% { -webkit-transform: translate3d(47px, 0px, 0) rotate(1deg) scale(0.95); }
+    30% { -webkit-transform: translate3d(50px, 2px, 0) rotate(0deg) scale(0.95); }
+    40% { -webkit-transform: translate3d(51px, -1px, 0) rotate(1deg) scale(0.95); }
+    50% { -webkit-transform: translate3d(49px, 2px, 0) rotate(-1deg) scale(0.95); }
+    60% { -webkit-transform: translate3d(47px, 1px, 0) rotate(0deg) scale(0.95); }
+    70% { -webkit-transform: translate3d(52px, 1px, 0) rotate(-1deg) scale(0.95); }
+    80% { -webkit-transform: translate3d(49px, -1px, 0) rotate(1deg) scale(0.95); }
+    90% { -webkit-transform: translate3d(52px, 2px, 0) rotate(0deg) scale(0.95); }
+    100% { -webkit-transform: translate3d(51px, -2px, 0) rotate(-1deg) scale(0.95); }
+}
+
+@-webkit-keyframes girl-shake {
+    0% { -webkit-transform: translate3d(-51px, -2px, 0) rotate(-1deg) scale(0.95); }
+    10% { -webkit-transform: translate3d(-52px, 2px, 0) rotate(0deg) scale(0.95); }
+    20% { -webkit-transform: translate3d(-49px, -1px, 0) rotate(1deg) scale(0.95); }
+    30% { -webkit-transform: translate3d(-52px, 1px, 0) rotate(-1deg) scale(0.95); }
+    40% { -webkit-transform: translate3d(-51px, -1px, 0) rotate(1deg) scale(0.95); }
+    50% { -webkit-transform: translate3d(-47px, 1px, 0) rotate(0deg) scale(0.95); }
+    60% { -webkit-transform: translate3d(-49px, 2px, 0) rotate(-1deg) scale(0.95); }
+    70% { -webkit-transform: translate3d(-50px, 2px, 0) rotate(0deg) scale(0.95); }
+    80% { -webkit-transform: translate3d(-47px, 0px, 0) rotate(1deg) scale(0.95); }
+    90% { -webkit-transform: translate3d(-49px, -2px, 0) rotate(-1deg) scale(0.95); }
+    100% { -webkit-transform: translate3d(-52px, 1px, 0) rotate(0deg) scale(0.95); }
 }
