@@ -39,18 +39,18 @@ class App
     @canvas = document.getElementById 'scene'
     @context = @canvas.getContext '2d'
 
-    man = new Particle
+    @man = new Particle
       x: Math.random() * @canvas.width
       y: Math.random() * @canvas.height
       30, 144, 255, LOVE
-    woman = new Particle
+    @woman = new Particle
       x: Math.random() * @canvas.width
       y: Math.random() * @canvas.height
       255, 20, 147, LOVE
 
     @particles = []
-    @particles.push man
-    @particles.push woman
+    @particles.push @man
+    @particles.push @woman
 
     @iterations = 0
 
@@ -95,8 +95,7 @@ class App
     @draw()
     window.requestAnimationFrame @loop
 
-  @config: (options) ->
-    for p in @particles
-      p.config options
+  @config: (gender, options) ->
+    @[gender].config options
 
 module.exports = App

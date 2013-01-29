@@ -4,6 +4,7 @@
 
     <meta charset="utf-8">
     <title>Canvas</title>
+
     <link rel="stylesheet" href="style.css">
 
 </head>
@@ -11,54 +12,59 @@
 
 <fieldset class="man">
     <p class="love">
-        <input id="love" type="number" value="50">
+        <input type="number" value="50">
     </p>
     <p class="hate">
-        <input id="hate" type="number" value="25">
+        <input type="number" value="25">
     </p>
     <p class="love-radius">
-        <input id="love-radius" type="number" value="400">
+        <input type="number" value="400">
     </p>
     <p class="hate-radius">
-        <input id="hate-radius" type="number" value="50">
+        <input type="number" value="50">
     </p>
 </fieldset>
 
 <fieldset class="girl">
     <p class="love">
-        <input id="love" type="number" value="50">
+        <input type="number" value="50">
     </p>
     <p class="hate">
-        <input id="hate" type="number" value="25">
+        <input type="number" value="25">
     </p>
     <p class="love-radius">
-        <input id="love-radius" type="number" value="400">
+        <input type="number" value="400">
     </p>
     <p class="hate-radius">
-        <input id="hate-radius" type="number" value="50">
+        <input type="number" value="50">
     </p>
 </fieldset>
 
 <canvas id="scene" width="640" height="400"></canvas>
 
+<audio src="mp3/scabeater-searching.mp3" preload="auto" autoplay></audio>
+
 <script src="love_hate.js"></script>
 <script>
-    var app = require('app')
+    var app = require('app');
 
     app.init();
     app.loop();
 
-    var inputs = document.querySelectorAll('input[type=number]');
-    for (var i = 0, len = inputs.length; i < len; i++) {
-        inputs[i].addEventListener('change', function() {
-            app.config({
-                love: parseInt(inputs[0].value),
-                hate: parseInt(inputs[1].value),
-                loveRadius: parseInt(inputs[2].value),
-                hateRadius: parseInt(inputs[3].value)
-            });
-        }, false);
-    };
+    // panel events
+    'man girl'.split(' ').forEach(function(gender) {
+        var inputs = document.querySelectorAll('.' + gender + ' input[type=number]');
+        for (var i = 0, len = inputs.length; i < len; i++) {
+            inputs[i].addEventListener('change', function() {
+                app.config(gender, {
+                    love: parseInt(inputs[0].value),
+                    hate: parseInt(inputs[1].value),
+                    loveRadius: parseInt(inputs[2].value),
+                    hateRadius: parseInt(inputs[3].value)
+                });
+            }, false);
+        };
+    });
 </script>
 
 </body>

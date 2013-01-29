@@ -63,7 +63,6 @@ class Particle
     return
 
   config: (options) ->
-    console.log options
     @love = options.love
     @hate = options.hate
     @loveRadius = options.loveRadius
