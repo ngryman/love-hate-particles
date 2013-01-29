@@ -84,7 +84,7 @@ class App
     @context.fillStyle = 'rgba(0, 0, 0, 0.04)'
     @context.fillRect 0, 0, @canvas.width, @canvas.height
 
-    @context.lineWidth = 8
+    @context.lineWidth = Particle.SIZE
     @context.lineCap = 'round'
     @context.lineJoin = 'round'
 

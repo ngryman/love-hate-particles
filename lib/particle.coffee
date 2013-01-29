@@ -40,14 +40,14 @@ class Particle
     @pos.y += @vel.y
 
     # bounce on borders
-    @vel.x = -@vel.x if @pos.x < 0 or @pos.x > canvas.width
-    @vel.y = -@vel.y if @pos.y < 0 or @pos.y > canvas.height
+    @vel.x = -@vel.x if @pos.x < Particle.SIZE_2 or @pos.x > canvas.width - Particle.SIZE_2
+    @vel.y = -@vel.y if @pos.y < Particle.SIZE_2 or @pos.y > canvas.height - Particle.SIZE_2
 
     # ensure particle is not outside
-    @pos.x = 0 if @pos.x < 0
-    @pos.y = 0 if @pos.y < 0
-    @pos.x = canvas.width if @pos.x > canvas.width
-    @pos.y = canvas.height if @pos.y > canvas.height
+    @pos.x = Particle.SIZE_2 if @pos.x < Particle.SIZE_2
+    @pos.y = Particle.SIZE_2 if @pos.y < Particle.SIZE_2
+    @pos.x = canvas.width - Particle.SIZE_2 if @pos.x > canvas.width - Particle.SIZE_2
+    @pos.y = canvas.height - Particle.SIZE_2 if @pos.y > canvas.height - Particle.SIZE_2
 
   draw: (ctx) ->
     ctx.strokeStyle = 'rgba(' + @r + ', ' + @g + ', ' + @b + ', 1)';
@@ -68,5 +68,8 @@ class Particle
     @hate = options.hate
     @loveRadius = options.loveRadius
     @hateRadius = options.hateRadius
+
+  @SIZE: 8
+  @SIZE_2: @SIZE / 2
 
 module.exports = Particle
