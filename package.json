@@ -1,7 +1,7 @@
 {
     "name": "love-hate-particles",
     "version": "0.1.0",
-    "dependencies": {
+    "devDependencies": {
         "coffee-script": "x.x.x",
         "stitch": "x.x.x"
     }
