@@ -32,6 +32,7 @@ h1 {
     background: url(images/title.png);
 }
 
+a strong,
 a em {
     font-style: normal;
     font-weight: bold;
@@ -171,6 +172,7 @@ input[type=number] {
 
 .girl input {
     direction: rtl;
+    padding-left: 0;    /* fix for safari */
 }
 
 footer {

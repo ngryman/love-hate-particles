@@ -5,7 +5,7 @@ window.requestAnimationFrame ||=
   window.msRequestAnimationFrame     ||
   (callback) ->
     window.setTimeout( ->
-      callback
+      callback()
     , 1000 / 60)
 
 window.cancelAnimationFrame ||=
