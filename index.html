@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <title>love & hate particles</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<header>
+    <h1>love & hate particles</h1>
+</header>
+
+<fieldset class="man">
+    <p class="love">
+        <input type="number" value="50">
+    </p>
+    <p class="hate">
+        <input type="number" value="25">
+    </p>
+    <p class="love-radius">
+        <input type="number" value="400">
+    </p>
+    <p class="hate-radius">
+        <input type="number" value="50">
+    </p>
+</fieldset>
+
+<fieldset class="girl">
+    <p class="love">
+        <input type="number" value="50">
+    </p>
+    <p class="hate">
+        <input type="number" value="25">
+    </p>
+    <p class="love-radius">
+        <input type="number" value="400">
+    </p>
+    <p class="hate-radius">
+        <input type="number" value="50">
+    </p>
+</fieldset>
+
+<canvas id="scene" width="640" height="400"></canvas>
+
+<audio src="mp3/scabeater-searching.mp3" preload="auto" autoplay loop></audio>
+
+<footer>
+    <a href="http://twitter.com/ngryman">Source on <em>Github</em></a> |
+    <a href="http://twitter.com/ngryman">Follow <strong>@ngryman</strong> on <em>Twitter</em></a>
+</footer>
+
+<div class="share">
+    <iframe id="facebook-button" src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fngryman.github.com%2Flove-hate-particles&amp;layout=button_count&amp;show_faces=false&amp;width=80&amp;action=like&amp;font=arial&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:90px; height:24px;" allowtransparency="true"></iframe>
+
+    <div id="tweet-button">
+        <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ngryman.github/love-hate-particles" data-text="Love &amp; Hate particles - a little HTML5 experiment by @ngryman." data-count="horizontal" data-related="ngryman">Tweet</a>
+    </div>
+    <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+</div>
+
+<script src="love_hate.js"></script>
+<script>
+    var app = require('app');
+
+    app.init();
+    app.loop();
+
+    // panel events
+    'man girl'.split(' ').forEach(function(gender) {
+        var inputs = document.querySelectorAll('.' + gender + ' input[type=number]');
+        for (var i = 0, len = inputs.length; i < len; i++) {
+            inputs[i].addEventListener('change', function() {
+                app.config(gender, {
+                    love: parseInt(inputs[0].value),
+                    hate: parseInt(inputs[1].value),
+                    loveRadius: parseInt(inputs[2].value),
+                    hateRadius: parseInt(inputs[3].value)
+                });
+            }, false);
+        };
+    });
+</script>
+
+</body>
+</html>

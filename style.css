@@ -1,0 +1,237 @@
+* {
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+html,
+body {
+    margin: 0;
+    height: 100%;
+}
+
+body {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    color: #fefefe;
+    background-color: #222222;
+    background-image: -moz-linear-gradient(transparent 50%, #1c1c1c 50%);
+    background-image: -webkit-linear-gradient(transparent 50%, #1c1c1c 50%);
+    background-image: -o-linear-gradient(transparent 50%, #1c1c1c 50%);
+    background-image: -ms-linear-gradient(transparent 50%, #1c1c1c 50%);
+    background-image: linear-gradient(transparent 50%, #1c1c1c 50%);
+    background-size: 50px 6px;
+}
+
+h1 {
+    margin: 0;
+    width: 240px;
+    height: 54px;
+    text-indent: -9999em;
+    background: url(images/title.png);
+}
+
+a em {
+    font-style: normal;
+    font-weight: bold;
+}
+
+a strong {
+    -webkit-transition: all 200ms 200ms;
+}
+
+a:hover strong {
+    color: #fefefe;
+}
+
+header,
+canvas,
+fieldset {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 640px;
+    border: 6px solid #333333;
+    box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.4);
+    border-radius: 4px;
+}
+
+header {
+    margin-top: -242px;
+    margin-left: -242px;
+    border: none;
+    box-shadow: none;
+    z-index: 1;
+}
+
+canvas {
+    margin-top: -200px;
+    margin-left: -320px;
+    background: black;
+}
+
+fieldset {
+    margin-top: -120px;
+    border-width: 6px;
+    border-style: solid;
+    padding: 0 10px;
+    width: 140px;
+    -webkit-transition: all 300ms;
+}
+
+fieldset.man {
+    margin-left: -470px;
+    border-color: rgba(30, 144, 255, 0.1);;
+    background: rgba(30, 144, 255, 0.1);
+    -webkit-transform: translate3d(50px, 0, 0) scale(0.95);
+}
+
+fieldset.man:not(:hover) {
+    -webkit-animation: man-shake 5s .1s infinite alternate;
+}
+
+fieldset.girl {
+    margin-left: 330px;
+    border-color: rgba(255, 20, 147, 0.1);;
+    background: rgba(255, 20, 147, 0.1);
+    -webkit-transform: translate3d(-50px, 0, 0) scale(0.95);
+}
+
+fieldset.girl:not(:hover) {
+    -webkit-animation: girl-shake 5s .1s infinite alternate;
+}
+
+fieldset:hover {
+    -webkit-transform: translate3d(0, 0, 0);
+}
+
+fieldset.man:hover {
+    border-color: rgba(30, 144, 255, 0.6);
+    background: rgba(30, 144, 255, 0.6);
+    box-shadow: 0 0 40px 2px rgba(30, 144, 255, 0.6);
+}
+
+fieldset.girl:hover {
+    border-color: rgba(255, 20, 147, 0.6);
+    background: rgba(255, 20, 147, 0.6);
+    box-shadow: 0 0 40px 2px rgba(255, 20, 147, 0.6);
+}
+
+fieldset p {
+    position: relative;
+}
+
+.man p {
+    padding-left: 40px;
+}
+
+.girl p {
+    padding-right: 40px;
+}
+
+fieldset p::before {
+    content: '';
+    position: absolute;
+    width: 36px;
+    height: 36px;
+}
+
+.man p::before {
+    left: 0;
+}
+
+.girl p::before {
+    right: 0;
+}
+
+fieldset p.love::before {
+    background: url(images/love.png) no-repeat;
+}
+
+fieldset p.hate::before {
+    background: url(images/hate.png) no-repeat;
+}
+
+fieldset p.love-radius::before {
+    background: url(images/love-radius.png) no-repeat;
+}
+
+fieldset p.hate-radius::before {
+    background: url(images/hate-radius.png) no-repeat;
+}
+
+input[type=number] {
+    border: 4px solid rgba(50, 50, 50, 0.5);
+    padding: 4px;
+    width: 100%;
+    color: #fefefe;
+    background: #222222;
+}
+
+.girl input {
+    direction: rtl;
+}
+
+footer {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    margin-left: -320px;
+    padding: 10px;
+    width: 640px;
+    color: #999;
+    text-align: center;
+}
+
+footer a {
+    padding: 6px;
+    color: #999;
+    font-size: 0.8em;
+    text-decoration: none;
+    text-shadow: 0 0 2px black;
+    border-radius: 4px;
+    -webkit-transition: all 200ms;
+}
+
+footer a:hover {
+    background: black;
+}
+
+#facebook-button,
+#tweet-button {
+    display: inline-block;
+}
+
+#facebook-button {
+    position: relative;
+    top: 4px;
+}
+
+@-webkit-keyframes man-shake {
+    0% { -webkit-transform: translate3d(52px, 1px, 0) rotate(0deg) scale(0.95); }
+    10% { -webkit-transform: translate3d(49px, -2px, 0) rotate(-1deg) scale(0.95); }
+    20% { -webkit-transform: translate3d(47px, 0px, 0) rotate(1deg) scale(0.95); }
+    30% { -webkit-transform: translate3d(50px, 2px, 0) rotate(0deg) scale(0.95); }
+    40% { -webkit-transform: translate3d(51px, -1px, 0) rotate(1deg) scale(0.95); }
+    50% { -webkit-transform: translate3d(49px, 2px, 0) rotate(-1deg) scale(0.95); }
+    60% { -webkit-transform: translate3d(47px, 1px, 0) rotate(0deg) scale(0.95); }
+    70% { -webkit-transform: translate3d(52px, 1px, 0) rotate(-1deg) scale(0.95); }
+    80% { -webkit-transform: translate3d(49px, -1px, 0) rotate(1deg) scale(0.95); }
+    90% { -webkit-transform: translate3d(52px, 2px, 0) rotate(0deg) scale(0.95); }
+    100% { -webkit-transform: translate3d(51px, -2px, 0) rotate(-1deg) scale(0.95); }
+}
+
+@-webkit-keyframes girl-shake {
+    0% { -webkit-transform: translate3d(-51px, -2px, 0) rotate(-1deg) scale(0.95); }
+    10% { -webkit-transform: translate3d(-52px, 2px, 0) rotate(0deg) scale(0.95); }
+    20% { -webkit-transform: translate3d(-49px, -1px, 0) rotate(1deg) scale(0.95); }
+    30% { -webkit-transform: translate3d(-52px, 1px, 0) rotate(-1deg) scale(0.95); }
+    40% { -webkit-transform: translate3d(-51px, -1px, 0) rotate(1deg) scale(0.95); }
+    50% { -webkit-transform: translate3d(-47px, 1px, 0) rotate(0deg) scale(0.95); }
+    60% { -webkit-transform: translate3d(-49px, 2px, 0) rotate(-1deg) scale(0.95); }
+    70% { -webkit-transform: translate3d(-50px, 2px, 0) rotate(0deg) scale(0.95); }
+    80% { -webkit-transform: translate3d(-47px, 0px, 0) rotate(1deg) scale(0.95); }
+    90% { -webkit-transform: translate3d(-49px, -2px, 0) rotate(-1deg) scale(0.95); }
+    100% { -webkit-transform: translate3d(-52px, 1px, 0) rotate(0deg) scale(0.95); }
+}
