@@ -26,8 +26,8 @@ body {
 
 h1 {
     margin: 0;
-    width: 235px;
-    height: 52px;
+    width: 240px;
+    height: 54px;
     text-indent: -9999em;
     background: url(images/title.png);
 }
@@ -45,8 +45,8 @@ fieldset {
 }
 
 header {
-    margin-top: -240px;
-    margin-left: -240px;
+    margin-top: -242px;
+    margin-left: -242px;
     border: none;
     box-shadow: none;
     z-index: 1;
