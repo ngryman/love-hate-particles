@@ -1,6 +1,6 @@
 # love & hate particles
 
-This is a little experiment about two particles relationship.
+This is a little experiment about two particles' relationship.
 
 # Credits
 

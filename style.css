@@ -198,6 +198,16 @@ footer a:hover {
     background: black;
 }
 
+#facebook-button,
+#tweet-button {
+    display: inline-block;
+}
+
+#facebook-button {
+    position: relative;
+    top: 4px;
+}
+
 @-webkit-keyframes man-shake {
     0% { -webkit-transform: translate3d(52px, 1px, 0) rotate(0deg) scale(0.95); }
     10% { -webkit-transform: translate3d(49px, -2px, 0) rotate(-1deg) scale(0.95); }
