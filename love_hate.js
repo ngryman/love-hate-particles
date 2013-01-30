@@ -53,7 +53,7 @@
 
   window.requestAnimationFrame || (window.requestAnimationFrame = window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function(callback) {
     return window.setTimeout(function() {
-      return callback;
+      return callback();
     }, 1000 / 60);
   });
 
