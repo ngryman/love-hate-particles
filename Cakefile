@@ -2,7 +2,7 @@ require 'coffee-script'
 stitch = require 'stitch'
 fs = require 'fs'
 
-task 'build', 'Build Love & Hate', ->
+task 'build', 'Builds Love & Hate', ->
   pkg = stitch.createPackage
     paths: [__dirname + '/lib']
 

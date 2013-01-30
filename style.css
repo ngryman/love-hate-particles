@@ -4,9 +4,16 @@
     box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
+html,
+body {
+    margin: 0;
+    height: 100%;
+}
+
 body {
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     font-weight: 300;
+    font-size: 16px;
     color: #fefefe;
     background-color: #222222;
     background-image: -moz-linear-gradient(transparent 50%, #1c1c1c 50%);
@@ -14,9 +21,18 @@ body {
     background-image: -o-linear-gradient(transparent 50%, #1c1c1c 50%);
     background-image: -ms-linear-gradient(transparent 50%, #1c1c1c 50%);
     background-image: linear-gradient(transparent 50%, #1c1c1c 50%);
-    background-size: 50px 8px;
+    background-size: 50px 6px;
 }
 
+h1 {
+    margin: 0;
+    width: 235px;
+    height: 52px;
+    text-indent: -9999em;
+    background: url(images/title.png);
+}
+
+header,
 canvas,
 fieldset {
     position: absolute;
@@ -26,6 +42,14 @@ fieldset {
     border: 6px solid #333333;
     box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.4);
     border-radius: 4px;
+}
+
+header {
+    margin-top: -240px;
+    margin-left: -240px;
+    border: none;
+    box-shadow: none;
+    z-index: 1;
 }
 
 canvas {
@@ -40,7 +64,6 @@ fieldset {
     border-style: solid;
     padding: 0 10px;
     width: 140px;
-    z-index: -1;
     -webkit-transition: all 300ms;
 }
 
@@ -52,7 +75,7 @@ fieldset.man {
 }
 
 fieldset.man:not(:hover) {
-    -webkit-animation: man-shake 5s 1s infinite alternate;
+    -webkit-animation: man-shake 5s .1s infinite alternate;
 }
 
 fieldset.girl {
@@ -63,7 +86,7 @@ fieldset.girl {
 }
 
 fieldset.girl:not(:hover) {
-    -webkit-animation: girl-shake 5s 1s infinite alternate;
+    -webkit-animation: girl-shake 5s .1s infinite alternate;
 }
 
 fieldset:hover {
