@@ -198,6 +198,10 @@ footer a:hover {
     background: black;
 }
 
+.share {
+    float: right;
+}
+
 #facebook-button,
 #tweet-button {
     display: inline-block;

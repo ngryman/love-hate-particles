@@ -53,15 +53,6 @@
     <a href="http://twitter.com/ngryman">Follow <strong>@ngryman</strong> on <em>Twitter</em></a>
 </footer>
 
-<div class="share">
-    <iframe id="facebook-button" src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fngryman.github.com%2Flove-hate-particles&amp;layout=button_count&amp;show_faces=false&amp;width=80&amp;action=like&amp;font=arial&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:90px; height:24px;" allowtransparency="true"></iframe>
-
-    <div id="tweet-button">
-        <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ngryman.github/love-hate-particles" data-text="Love &amp; Hate particles - a little HTML5 experiment by @ngryman." data-count="horizontal" data-related="ngryman">Tweet</a>
-    </div>
-    <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-</div>
-
 <script src="love_hate.js"></script>
 <script>
     var app = require('app');
@@ -83,6 +74,27 @@
             }, false);
         };
     });
+</script>
+
+<div class="share">
+    <iframe id="facebook-button" src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fngryman.github.com%2Flove-hate-particles&amp;layout=button_count&amp;show_faces=false&amp;width=110&amp;action=like&amp;font=arial&amp;colorscheme=light&amp;height=24" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:110px; height:24px;" allowtransparency="true"></iframe>
+
+    <div id="tweet-button">
+        <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ngryman.github/love-hate-particles" data-text="Love &amp; Hate particles - a little HTML5 experiment by @ngryman." data-count="horizontal" data-related="ngryman">Tweet</a>
+    </div>
+    <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+</div>
+
+<script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-5779130-3']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
 </script>
 
 </body>
