@@ -23,12 +23,15 @@
     <p class="love">
         <input type="number" value="50">
     </p>
+
     <p class="hate">
         <input type="number" value="25">
     </p>
+
     <p class="love-radius">
         <input type="number" value="400">
     </p>
+
     <p class="hate-radius">
         <input type="number" value="50">
     </p>
@@ -38,12 +41,15 @@
     <p class="love">
         <input type="number" value="50">
     </p>
+
     <p class="hate">
         <input type="number" value="25">
     </p>
+
     <p class="love-radius">
         <input type="number" value="400">
     </p>
+
     <p class="hate-radius">
         <input type="number" value="50">
     </p>
@@ -60,25 +66,69 @@
 
 <script src="love_hate.js"></script>
 <script>
-    var app = require('app');
+    var app = require('app'),
+        genders = 'man girl'.split(' '),
+        inputs = [];
+
+    // inputs
+    genders.forEach(function(gender, i) {
+        inputs.push(document.querySelectorAll('.' + gender + ' input[type=number]'));
+    });
+
+    // load/save
+    function load() {
+        var rawOpts = location.hash.replace('#', '').split('@');
+        genders.forEach(function(gender, i) {
+            var opts = rawOpts[i].split(',');
+            app.config(gender, {
+                love: parseInt(opts[0]),
+                hate: parseInt(opts[1]),
+                loveRadius: parseInt(opts[2]),
+                hateRadius: parseInt(opts[3])
+            });
+            for (var j = 0, len = opts.length; j < len; j++) {
+                inputs[i][j].value = opts[j];
+            }
+        });
+    }
+
+    function save() {
+        var opts = [];
+        genders.forEach(function(gender, i) {
+            opts.push([
+                inputs[i][0].value,
+                inputs[i][1].value,
+                inputs[i][2].value,
+                inputs[i][3].value
+            ].join(','));
+        });
+        opts = opts.join('@');
+        location.hash = opts;
+    }
 
     app.init();
     app.loop();
 
     // panel events
-    'man girl'.split(' ').forEach(function(gender) {
-        var inputs = document.querySelectorAll('.' + gender + ' input[type=number]');
-        for (var i = 0, len = inputs.length; i < len; i++) {
-            inputs[i].addEventListener('change', function() {
+    genders.forEach(function(gender, i) {
+        for (var j = 0, len = inputs[i].length; j < len; j++) {
+            inputs[i][j].addEventListener('change', function() {
                 app.config(gender, {
-                    love: parseInt(inputs[0].value),
-                    hate: parseInt(inputs[1].value),
-                    loveRadius: parseInt(inputs[2].value),
-                    hateRadius: parseInt(inputs[3].value)
+                    love: parseInt(inputs[i][0].value),
+                    hate: parseInt(inputs[i][1].value),
+                    loveRadius: parseInt(inputs[i][2].value),
+                    hateRadius: parseInt(inputs[i][3].value)
                 });
+                save();
             }, false);
-        };
+        }
     });
+
+    // apply changes
+    window.addEventListener('hashchange', load, false);
+
+    // initial loading
+    location.hash ? load() : save();
 </script>
 
 <div class="share">
