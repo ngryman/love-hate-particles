@@ -15,6 +15,10 @@
 </head>
 <body>
 
+<div class="options">
+    <a class="volume -on" href="#">Volume</a>
+</div>
+
 <header>
     <h1>love & hate particles</h1>
 </header>
@@ -59,7 +63,10 @@
 
 <canvas id="scene" width="640" height="400"></canvas>
 
-<audio src="mp3/scabeater-searching.mp3" preload="auto" loop></audio>
+<audio autoplay loop>
+    <source src="audio/scabeater-searching.ogg" type="audio/ogg">
+    <source src="audio/scabeater-searching.mp3" type="audio/mpeg">
+</audio>
 
 <footer>
     <a href="https://github.com/ngryman/love-hate-particles">Source on <em>Github</em></a> |
@@ -70,6 +77,7 @@
 <script>
     var app = require('app'),
         genders = 'man girl'.split(' '),
+        audio = document.querySelector('audio'),
         inputs = [];
 
     // inputs
@@ -131,6 +139,32 @@
 
     // initial loading
     location.hash ? load() : save();
+
+    // actions
+    var actions = {
+        volumeOn: function() {
+            audio.play();
+        },
+        volumeOff: function() {
+            audio.pause();
+        }
+    };
+
+    // options
+    var options = document.querySelectorAll('.options a');
+    for (var i = 0, len = options.length; i < len; i++) {
+        options[i].addEventListener('click', function(e) {
+            this.classList.toggle('-on');
+            this.classList.toggle('-off');
+
+            var actionName = this.classList.toString().replace(/ -([a-z])/g, function (m, w) {
+                return w.toUpperCase();
+            });
+            actions[actionName]();
+
+            e.preventDefault();
+        }, false);
+    }
 </script>
 
 <script>

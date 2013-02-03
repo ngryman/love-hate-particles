@@ -63,9 +63,38 @@ fieldset {
 header {
     margin-top: -242px;
     margin-left: -242px;
+    width: 550px;
     border: none;
     box-shadow: none;
     z-index: 1;
+}
+
+.options {
+    position: absolute;
+    top: 20px;
+    left: 10px;
+    margin-top: -12px;
+    height: 22px;
+}
+
+.options a {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    text-indent: -9999em;
+    -moz-transition: all 200ms 200ms;
+    -webkit-transition: all 200ms 200ms;
+    transition: all 200ms 200ms;
+}
+
+.options .volume {
+    background: url(images/audio-on.png) center no-repeat;
+    opacity: 0.2;
+}
+
+.options .volume:hover,
+.options .volume.-off {
+    opacity: 0.5;
 }
 
 canvas {
