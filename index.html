@@ -7,26 +7,40 @@
 
     <link rel="stylesheet" href="style.css">
 
+    <meta name="title" content="love & hate particles">
+    <meta name="description" content="This is a little experiment about two particles' relationship.">
+    <meta name="author" content="Nicolas Gryman">
+    <meta property="og:image" content="preview.jpg">
+
 </head>
 <body>
+
+<div class="options">
+    <a class="mute" href="#">mute</a>
+</div>
 
 <header>
     <h1>love & hate particles</h1>
 </header>
 
+<div class="share">
+    <iframe id="facebook-button" src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fngryman.github.com%2Flove-hate-particles&amp;layout=button_count&amp;show_faces=false&amp;width=110&amp;action=like&amp;font=arial&amp;colorscheme=light&amp;height=24" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:110px; height:24px;" allowtransparency="true"></iframe>
+
+    <div id="tweet-button">
+        <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ngryman.github/love-hate-particles" data-text="Love &amp; Hate particles - a little HTML5 experiment by @ngryman." data-count="horizontal" data-related="ngryman"></a>
+    </div>
+</div>
+
 <fieldset class="man">
     <p class="love">
         <input type="number" value="50">
     </p>
-
     <p class="hate">
         <input type="number" value="25">
     </p>
-
     <p class="love-radius">
         <input type="number" value="400">
     </p>
-
     <p class="hate-radius">
         <input type="number" value="50">
     </p>
@@ -36,15 +50,12 @@
     <p class="love">
         <input type="number" value="50">
     </p>
-
     <p class="hate">
         <input type="number" value="25">
     </p>
-
     <p class="love-radius">
         <input type="number" value="400">
     </p>
-
     <p class="hate-radius">
         <input type="number" value="50">
     </p>
@@ -52,26 +63,21 @@
 
 <canvas id="scene" width="640" height="400"></canvas>
 
-<audio src="mp3/scabeater-searching.mp3" preload="auto" autoplay loop></audio>
+<audio preload="auto" loop>
+    <source src="audio/scabeater-searching.ogg" type="audio/ogg">
+    <source src="audio/scabeater-searching.mp3" type="audio/mpeg">
+</audio>
 
 <footer>
-    <a href="http://twitter.com/ngryman">Source on <em>Github</em></a> |
+    <a href="https://github.com/ngryman/love-hate-particles">Source on <em>Github</em></a> |
     <a href="http://twitter.com/ngryman">Follow <strong>@ngryman</strong> on <em>Twitter</em></a>
 </footer>
-
-<div class="share">
-    <iframe id="facebook-button" src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fngryman.github.com%2Flove-hate-particles&amp;layout=button_count&amp;show_faces=false&amp;width=80&amp;action=like&amp;font=arial&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:90px; height:24px;" allowtransparency="true"></iframe>
-
-    <div id="tweet-button">
-        <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ngryman.github/love-hate-particles" data-text="Love &amp; Hate particles - a little HTML5 experiment by @ngryman." data-count="horizontal" data-related="ngryman">Tweet</a>
-    </div>
-    <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-</div>
 
 <script src="love_hate.js"></script>
 <script>
     var app = require('app'),
         genders = 'man girl'.split(' '),
+        audio = document.querySelector('audio'),
         inputs = [];
 
     // inputs
@@ -133,6 +139,76 @@
 
     // initial loading
     location.hash ? load() : save();
+
+    // actions
+    var actions = {
+        muteOn: function() {
+            audio.pause();
+            localStorage.setItem('mute', 'on');
+        },
+        muteOff: function() {
+            audio.play();
+            localStorage.setItem('mute', 'off');
+        }
+    };
+
+    // options
+    var options = document.querySelectorAll('.options a');
+    for (var i = 0, len = options.length; i < len; i++) {
+        options[i].addEventListener('click', function(e) {
+            this.classList.toggle('-on');
+            this.classList.toggle('-off');
+
+            var actionName = this.classList.toString().replace(/ -([a-z])/g, function (m, w) {
+                return w.toUpperCase();
+            });
+            actions[actionName]();
+
+            e.preventDefault();
+        }, false);
+
+        // initial state
+        options[i].classList.add('-' + (localStorage.getItem('mute') || 'off'));
+
+        var actionName = options[i].classList.toString().replace(/ -([a-z])/g, function (m, w) {
+            return w.toUpperCase();
+        });
+        actions[actionName]();
+    }
+</script>
+
+<script>
+    /**
+     * ga config
+     */
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-5779130-3']);
+    _gaq.push(['_trackPageview']);
+
+    /**
+     * async analytics and social scripts loading
+     * https://gist.github.com/1025811
+     */
+    (function(doc, script) {
+        var js,
+            fjs = doc.getElementsByTagName(script)[0],
+            add = function(url, id) {
+                if (doc.getElementById(id)) {return;}
+                js = doc.createElement(script);
+                js.src = url;
+                id && (js.id = id);
+                fjs.parentNode.insertBefore(js, fjs);
+            };
+
+        // Google Analytics
+        add('http:' + ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js', 'ga');
+        // Google+ button
+//        add('https://apis.google.com/js/plusone.js');
+        // Facebook SDK
+//        add('http://connect.facebook.net/en_US/all.js', 'facebook-jssdk');
+        // Twitter SDK
+        add('http://platform.twitter.com/widgets.js', 'twitter-wjs');
+    }(document, 'script'));
 </script>
 
 </body>
