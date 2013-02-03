@@ -87,13 +87,13 @@ header {
     transition: all 200ms 200ms;
 }
 
-.options .volume {
+.options .mute {
     background: url(images/audio-on.png) center no-repeat;
     opacity: 0.2;
 }
 
-.options .volume:hover,
-.options .volume.-off {
+.options .mute:hover,
+.options .mute.-on {
     opacity: 0.5;
 }
 

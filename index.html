@@ -16,7 +16,7 @@
 <body>
 
 <div class="options">
-    <a class="volume -on" href="#">Volume</a>
+    <a class="mute" href="#">mute</a>
 </div>
 
 <header>
@@ -63,7 +63,7 @@
 
 <canvas id="scene" width="640" height="400"></canvas>
 
-<audio autoplay loop>
+<audio preload="auto" loop>
     <source src="audio/scabeater-searching.ogg" type="audio/ogg">
     <source src="audio/scabeater-searching.mp3" type="audio/mpeg">
 </audio>
@@ -142,11 +142,13 @@
 
     // actions
     var actions = {
-        volumeOn: function() {
-            audio.play();
-        },
-        volumeOff: function() {
+        muteOn: function() {
             audio.pause();
+            localStorage.setItem('mute', 'on');
+        },
+        muteOff: function() {
+            audio.play();
+            localStorage.setItem('mute', 'off');
         }
     };
 
@@ -164,6 +166,14 @@
 
             e.preventDefault();
         }, false);
+
+        // initial state
+        options[i].classList.add('-' + (localStorage.getItem('mute') || 'off'));
+
+        var actionName = options[i].classList.toString().replace(/ -([a-z])/g, function (m, w) {
+            return w.toUpperCase();
+        });
+        actions[actionName]();
     }
 </script>
 
