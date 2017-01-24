@@ -2,7 +2,7 @@
     "name": "love-hate-particles",
     "version": "0.1.0",
     "devDependencies": {
-        "coffee-script": "x.x.x",
+        "coffee-script": ">=1.12.3",
         "stitch": "x.x.x"
     }
 }
