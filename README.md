@@ -1,5 +1,7 @@
 # love & hate particles
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/ngryman/love-hate-particles.svg)](https://greenkeeper.io/)
+
 This is a little experiment about two particles' relationship.
 
 # Build
