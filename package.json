@@ -3,6 +3,6 @@
     "version": "0.1.0",
     "devDependencies": {
         "coffee-script": "x.x.x",
-        "stitch": "x.x.x"
+        "stitch": ">=0.3.3"
     }
 }
